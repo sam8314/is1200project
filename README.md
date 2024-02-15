@@ -9,8 +9,13 @@ intialisation of I/O
 ### home menu
 display : "leaderboard BTN1"
 display : "how to play BTN2"
-display : "signle player BTN3"
+display : "single player BTN3"
 display : "two players BTN4"
+
+BTN1 >> go to display leaderboard
+BTN2 >> go to rules page 1
+BTN3 : set nb_plyr = 1 and go to select difficulty
+BTN4 : set nb_plyr = 2 and go to select difficulty
 
 ### display leaderboard
 read lboard_names = char [3]
@@ -21,37 +26,42 @@ display : "lboard_names[2] : lboard_scores[2]"
 display : "return to main menu BTN1"
 
 ### update_leaderboard(name, score)
-change the lboard_names and lboard_scores accordingly
+(change the lboard_names and lboard_scores accordingly)
 
-### rules
-?
+### rules page 1
+display : "use BTN1 to go one page back"
+display : "use BTN2 to go one page forward"
+display : "use BTN3 to go to the home menu"
 
-### single player menu
+BTN2 >> go to rules page 2
+BTN3 >> go to home menu
+
+### rules page 2
+...
+
+### select difficluty
 display : "easy BTN1"
 display : "medium BTN2"
 display : "hard BTN3"
 display : "go back BTN4"
 
-### two-player menu
-display : "easy BTN1"
-display : "medium BTN2"
-display : "hard BTN3"
-display : "go back BTN4"
+go to game setup
 
 ### game setup
 build target grid
 set variables
 position players
 update display
+go to player_turn(0)
 
-### player turn
+### player_turn(index of player)
 wait a little
 start timer
 display angle of shoot
 read the trigger of shoot button and go to shoot
 at timer interrupt:
-if last shooting player is the second one >> go to 2 plyr end of play
-go to 1 plyr end of play
+if nb_plyr==2 >> go to 2 plyr end of play
+else go to 1 plyr end of play
 
 ### two-player mode turn
 display a 5 seconds timer and "give the chipkit to the other player" (increment a turn_counter)
