@@ -1,3 +1,5 @@
+#include <pic32mx.h>
+
 void init(void){
 
 //IO ports
@@ -22,7 +24,7 @@ int get_sw(void)
     return (PORTD&0xF00)>>8;
 }
 
-int get_exit()
+int get_exit(void)
 {
 	return (PORTF&0x1);
 }
