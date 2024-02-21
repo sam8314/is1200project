@@ -50,7 +50,6 @@ int main(void) {
 
  while(1)
   {
-    labwork();
     navigation(currentPage);
    
     /*maybe change the ifs into switch?*/
