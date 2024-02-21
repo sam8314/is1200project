@@ -1,5 +1,6 @@
 #include <pic32mx.h>
 #include "mipslab.h"
+#include <stdint.h>
 
 void init(void){
 
@@ -11,7 +12,7 @@ PORTFSET = 0x1; //set BTN1 as input
 //timer2
 T2CON = 0x70; //stop timer and clear control register, set prescale to 256:1
 TMR2 = 0x0; // clear timer register
-PR2 = 7A12; //period register = 80000000/(256*10)=31250
+PR2 = 0x7A12; //period register = 80000000/(256*10)=31250
 //T2CONSET = 0x8000; // start timer
 }
 
