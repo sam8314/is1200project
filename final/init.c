@@ -1,4 +1,5 @@
 #include <pic32mx.h>
+#include "mipslab.h"
 
 void init(void){
 
