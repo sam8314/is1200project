@@ -46,7 +46,7 @@ int main(void) {
 	SPI2CONSET = 0x8000;
 
  display_init();
- labinit();
+ init(); //from init.c file
 
  while(1)
   {
