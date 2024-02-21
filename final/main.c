@@ -47,7 +47,7 @@ int main(void) {
 
  display_init();
  init(); //from init.c file
-
+ display_string(1,"HELLO WORLD");
  while(1)
   {
     navigation(currentPage);
