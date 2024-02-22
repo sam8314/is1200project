@@ -5,6 +5,7 @@
 int currentPage = 1;
 int numberOfPlayers = 0;
 int difficultyLevel = 0;
+int activePlayerId = 0;
 
 void init(void){
 
