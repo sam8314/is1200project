@@ -2,6 +2,10 @@
 #include <pic32mx.h>
 #include "mipslab.h"
 
+int currentPage = 1;
+int numberOfPlayers = 0;
+int difficultyLevel = 0;
+
 void init(void){
 
 //IO ports
