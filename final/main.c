@@ -47,18 +47,25 @@ int main(void) {
 
  display_init();
  init(); //from init.c file
- display_string(1,"HELLO WORLD");
- display_update();
- while(1)
-  {
+// welcome_animation(); // ADD timer and stuff so that we can see it
+
+// display_update();
+
+while(1)
+{
+
     navigation(currentPage);
    
     /*maybe change the ifs into switch?*/
-  		if(currentPage == 6) 
+
+  		if(currentPage == 6)
   		{
-  			game_setup(difficultyLevel);
-  			player_turn(activePlayerId);
+  			//game_setup(difficultyLevel);
+  			//player_turn(activePlayerId);
+			char text[]="difficulty";
+			display_string(0,text);
   		}
+  //delay(100);
   display_update();
   }
  
