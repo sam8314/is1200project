@@ -7,15 +7,13 @@ welcome animation
 intialisation of I/O
 
 ### home menu
-display : "leaderboard BTN1"
-display : "how to play BTN2"
-display : "single player BTN3"
-display : "two players BTN4"
+display : "leaderboard BTN2"
+display : "how to play BTN3"
+display : "select mode BTN4"
 
-BTN1 >> go to display leaderboard
-BTN2 >> go to rules page 1
-BTN3 : set nb_plyr = 1 and go to select difficulty
-BTN4 : set nb_plyr = 2 and go to select difficulty
+BTN2 >> go to display leaderboard
+BTN3 >> go to rules
+BTN4 : go to select number of players
 
 ### display leaderboard
 read lboard_names = char [3]
@@ -28,22 +26,19 @@ display : "return to main menu BTN1"
 ### update_leaderboard(name, score)
 (change the lboard_names and lboard_scores accordingly)
 
-### rules page 1
-display : "use BTN1 to go one page back"
-display : "use BTN2 to go one page forward"
-display : "use BTN3 to go to the home menu"
+### rules
+BTN4 >> go to previous line
+BTN2 >> go to next line
+BTN1 >> go to home menu
 
-BTN2 >> go to rules page 2
-BTN3 >> go to home menu
+### select player mode
 
-### rules page 2
-...
 
 ### select difficluty
-display : "easy BTN1"
-display : "medium BTN2"
-display : "hard BTN3"
-display : "go back BTN4"
+display : "go back BTN1"
+display : "easy BTN2"
+display : "medium BTN3"
+display : "hard BTN4"
 
 go to game setup
 
