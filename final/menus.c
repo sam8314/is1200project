@@ -13,7 +13,7 @@ fix: change home menu : BTN1 is untouchable
 */
 
 void navigation(int page){
-    int buttons = getbtns();
+    int buttons = get_btns();
 
     if(page == 0){currentPage=welcome_animation(buttons);}
     else if(page==1){currentPage=home_menu(buttons);}
