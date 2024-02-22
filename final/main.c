@@ -48,6 +48,7 @@ int main(void) {
  display_init();
  init(); //from init.c file
  display_string(1,"HELLO WORLD");
+ display_update();
  while(1)
   {
     navigation(currentPage);
@@ -58,7 +59,7 @@ int main(void) {
   			game_setup(difficultyLevel);
   			player_turn(activePlayerId);
   		}
-  		display_update();
+  display_update();
   }
  
  return 0;
