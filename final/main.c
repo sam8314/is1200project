@@ -2,6 +2,8 @@
 #include <pic32mx.h>
 #include "mipslab.h"  
 
+int currentPage = 1;
+
 int main(void) {
         /*
 	  This will set the peripheral bus clock to the same frequency
