@@ -14,6 +14,8 @@ T2CON = 0x70; //stop timer and clear control register, set prescale to 256:1
 TMR2 = 0x0; // clear timer register
 PR2 = 0x7A12; //period register = 80000000/(256*10)=31250
 //T2CONSET = 0x8000; // start timer
+
+int currentPage = 1;
 }
 
 int get_btns(void)
