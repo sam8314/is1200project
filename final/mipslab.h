@@ -26,11 +26,10 @@ void enable_interrupt(void);
 
 // Menu
 void navigation(int input);
-int welcome_animation();
-int home_menu();
-int select_difficulty();
-int rules1();
-int rules2();
+void welcome_animation();
+void home_menu(int buttons, int exit);
+void select_difficulty(int buttons, int exit);
+void rules(int buttons, int exit);
 
 // Game
 void game_setup();
@@ -40,6 +39,7 @@ void player_turn(int playerId);
 
 /* VARIABLES*/
 extern int currentPage;
+
 extern int difficultyLevel;
 extern int numberOfPlayers;
 //extern int[?][?] targetsGrid;
