@@ -1,3 +1,4 @@
+#include <stdint.h> 
 #include "mipslab.h"
 
 /*0 : welcome animation
