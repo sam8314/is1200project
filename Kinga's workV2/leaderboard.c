@@ -54,13 +54,23 @@ void add_element(struct highscore* array, int score, char* name){
     }
 }
 
+/* Takes a highscore and a place where it can write a string (assumed to be char array[10] with null byte)
+it can handle scores with 4 digits, writes the initials to the left and score from the right (e.g EEEE   42'\0') */
 void lead_to_string(struct highscore high, char* string){
     int i;
+    int score = high.score;
     for (i=0; i<4; i++){
         string[i] = high.initials[i];
     }
-    string[4] = (char)high.score+0x30;
-    string[5] = '\0';
+    string[8] = (char)(score%10)+0x30;
+    i=1;
+    while (score/10!=0){
+        score = score/10;
+        i++;
+        string[9-i] = (char)(score%10)+0x30;
+    }
+    i++;
+    string[9] = '\0';
 }
 
 void show_leaderboard(struct highscore* array, int buttons){
