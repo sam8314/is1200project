@@ -130,9 +130,9 @@ int main(void) {
 
 	struct highscore high;
 	high.initials = "PLEG";
-	high.score = 4;
+	high.score = 42;
 
-	char string[6];
+	char string[10];
 	lead_to_string(high, string);
 	display_string(0, string);
 	display_update();
