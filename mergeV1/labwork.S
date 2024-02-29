@@ -24,6 +24,7 @@
 	.align 2
 	.global delay
 	.global time2string
+	.global enable_interrupt
 
 mytime:	.word 0x00001652
 timstr:	.ascii "This is a ticking time bomb in reverse.\n"
@@ -204,3 +205,7 @@ time2string:
 
 	jr	$ra
 	nop
+
+enable_interrupt:
+	ei
+	jr	$ra
