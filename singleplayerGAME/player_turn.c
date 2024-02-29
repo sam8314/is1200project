@@ -72,6 +72,32 @@ void player_turn(Bullet *b, Player *p)
   write_help();
 }
 
+int check_target_hit(Bullet *b)
+{
+  int edge_position = (b->x+2)* (b->y+2);
+  if(display_buffer[edge_position]==1) b->target_hit;
+  edge_position = (b->x+2)* (b->y+1);
+  if(display_buffer[edge_position]==1) b->target_hit;
+  edge_position = (b->x+2)* (b->y);
+  if(display_buffer[edge_position]==1) b->target_hit;
+  edge_position = (b->x+2)* (b->y-1);
+  if(display_buffer[edge_position]==1) b->target_hit;
+  edge_position = (b->x+2)* (b->y-2);
+  if(display_buffer[edge_position]==1) b->target_hit;
+  edge_position = (b->x+1)* (b->y-2);
+  if(display_buffer[edge_position]==1) b->target_hit;
+  edge_position = (b->x)* (b->y+2);
+  if(display_buffer[edge_position]==1) b->target_hit;
+  edge_position = (b->x)* (b->y-2);
+  if(display_buffer[edge_position]==1) b->target_hit;
+  edge_position = (b->x-1)* (b->y+2);
+  if(display_buffer[edge_position]==1) b->target_hit;
+  edge_position = (b->x-1)* (b->y-2);
+  if(display_buffer[edge_position]==1) b->target_hit;
+
+  return b->target_hit;
+}
+
 void move_bullet(Bullet *b, Player *p)
 {
   delay(2);
@@ -82,7 +108,7 @@ void move_bullet(Bullet *b, Player *p)
   if (b->y < 0 || b->y > 32) //floor or ceiling rebound
     get_rebound_trajectory(p, b->x, b->y);
 
-  if (b->target_hit)
+  if (check_target_hit(b)==1)
   {
     p->score +=1; //quick score calculation : NEED TO MODIFY
     reset_bullet(b,p);
