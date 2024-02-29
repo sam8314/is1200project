@@ -12,7 +12,10 @@ void user_isr(void)
 {
 	IFS(0) &= ~0x100;
     timeoutcount++;
-    if (timeoutcount==200){}
+    if (timeoutcount==200){
+	    timeoutcount++;
+	    //timesup=1;
+    }
     /* delay(50000);
 	display_image(0, display_buffer);
 	update_screen(display_buffer); */
@@ -92,7 +95,21 @@ int game(void)
     display_string(1, "");
     display_string(2, "");
     display_string(3, "");
+while(1){
+	clear_buffer(display_buffer);
+	if(p1.active && !p2.active)
+	{
+	    player_turn(&b, &p1);
+	    draw_player(&p1);
+	}
+	else if(p2.active && !p1.active)
+	{
+	    player_turn(&b, &p2);
+	    draw_player(&p2);
+	}
 
+	draw_bullet(&b);
+}
 
     return 0;
 }
