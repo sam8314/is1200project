@@ -18,3 +18,4 @@ make install TTYDEV=/dev/ttyUSB0 (or an equivalent for your USBport)
 ## In the game
 You enter a homemenu that allows you to access the rules book, a leaderboard and the settings. Navigate using the four buttons on the chipkit and follow the directions on the screen.
 The game lets you choose between single player or multiplayer but two-player mode is not yet fully developped.
+In this game, you will have to pull a lever up or down to aim a canon and destroy targets in front of you under the limited time you are given. Lucky for you, your canon ball can rebound on walls
