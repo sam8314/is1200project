@@ -112,17 +112,16 @@ void draw_player(Player *p)
 
 void draw_bullet(Bullet * b)
 {
-    delay(10000);
     draw_pixel(b->x, b->y);
     draw_pixel((b->x), (b->y-1));
     draw_pixel((b->x), (b->y+1));
     
-    draw_pixel((b->x+1), (b->y+1));
+    /* draw_pixel((b->x+1), (b->y+1));
     draw_pixel((b->x+1), (b->y));
     draw_pixel((b->x+1), (b->y-1));
 
     draw_pixel((b->x-1), (b->y-1));
     draw_pixel((b->x-1), (b->y));
-    draw_pixel((b->x-1), (b->y+1));
+    draw_pixel((b->x-1), (b->y+1)); */
 }
 
