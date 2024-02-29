@@ -54,8 +54,8 @@ void add_element(Highscore* array, int score, char* name){
     }
 }
 
-/* Takes a highscore and a place where it can write a string (assumed to be char array[10] with null byte)
-it can handle scores with 4 digits, writes the initials to the left and score from the right (e.g EEEE   42'\0') */
+/* Takes a highscore and a pointer to a string where it can write (assumed to be char array[10] with null byte) it can 
+handle scores with 4 digits, writes the initials to the left and score from the right digit by digit (e.g EEEE   42'\0') */
 void lead_to_string(Highscore high, char* string){
     int i;
     int score = high.score;
@@ -63,16 +63,22 @@ void lead_to_string(Highscore high, char* string){
         string[i] = high.initials[i];
     }
     string[8] = (char)(score%10)+0x30;
-    i=1;
+    i=2;
     while (score/10!=0){
         score = score/10;
-        i++;
         string[9-i] = (char)(score%10)+0x30;
+        i++;
     }
-    i++;
+    while (i<=5){
+        string[9-i]=' ';
+        i++;
+    }
     string[9] = '\0';
 }
 
+/*Called from menu (previously named leaderboard()), it takes a pointer to a highscore array and the value on the buttons
+as input and displays the current toplist in a scrollable format -> MIGHT need to change the firstRow variable to another
+so that we can reset it!!!*/
 void show_leaderboard(Highscore* array, int buttons){
     if((get_exit()))
     {
@@ -81,8 +87,8 @@ void show_leaderboard(Highscore* array, int buttons){
     }
     int i;
     int length = 0;
-    for (i=0;i<sizeof(array)/sizeof(Highscore);i++){
-        if (array[i].score!=-1){length++;}
+    for (i=0;i<9;i++){
+            if (array[i].score!=-1){length++;} //get the # of valid highscores
     }
     if ((buttons & 4) && (firstRow!=0))
     {
@@ -96,12 +102,17 @@ void show_leaderboard(Highscore* array, int buttons){
     }
     else if (buttons & 2){firstRow=0;}
     i = 0;
-    while ((i<4)&&(firstRow+i!=length-1)){
-        //display_string(i,lead_to_string(array[firstRow+i]));
+    while (i<4){
+        char string[10];
+        lead_to_string(array[firstRow+i], string);
+        display_string(i,string);
         i++;
     }
 }
 
+/*Called at the end of the game (if user decides to save score), it takes an arrar of chars initialized to AAAA and
+keeps going through the alphabet until a name is secured with the switches -> we should probably write a warning to reset
+the buttons before calling this*/
 char* get_name(char* current){ 
     int switches; 
     while(!((get_sw()&0b1111)==0b1111)){ //until all switches are on, we increment the letters that belong to a switch that's off
@@ -135,10 +146,13 @@ char* get_name(char* current){
     delay(2000);
     //add_element(array,score,current);
 }
+
+
 char* help[] = {"If you want to","save your score", "you can enter","your name on", 
     "the next page", "by switching", "the switches on", "when the right", 
     "letter appears", "Press BTN2 to", "continue or", "BTN1 to skip"};
 
+/* Displayed at the end of a game, can call get_name and afterwards add_element -> needs the score to be passed down!!!*/
 void write_help(){
     int firstRow = 0;
     while (1){
