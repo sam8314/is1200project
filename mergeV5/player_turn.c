@@ -49,35 +49,34 @@ void player_turn(Bullet *b, Player *p)
 {
   //p->active = 1;
   while (1){
-    int buttons = get_btns();
-    char s[4];
+    //int buttons = get_btns();
+     /*char s[4];
       s[0] = (char) buttons;
       s[0]+=0x30;
       s[1] = s[0];
       s[2] = s[0];
       s[3] = '\0';
       display_string(1,s);
-      display_update();
+      display_update(); */
     clear_buffer(display_buffer);
-    if(b->in_air ==0)
-    {
+    if(b->in_air ==0) {
       //display_string(3,"in player_turn");
       //display_update();
       move_player(p);
       reset_bullet(b, p);
     }
-    if (buttons&1)
+    if (get_btns()&1){}
     {
       b->in_air = 1;
-    }
-    if (b->in_air==1)
+    } 
+    if (b->in_air==1) {}
     {
       move_bullet(b, p);
     }
     
     
 
-    draw_bullet(b);
+    draw_bullet(b); 
     draw_player(p);
     //delay(200);
     display_image(0, display_buffer);
