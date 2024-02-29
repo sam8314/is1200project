@@ -50,6 +50,7 @@ void player_turn(Bullet *b, Player *p)
   while(!(timesup)){
     int buttons = get_btns();
     clear_buffer(display_buffer);
+    draw_grid();
     if(b->in_air ==0) {
       move_player(p);
       reset_bullet(b, p);
