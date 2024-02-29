@@ -119,13 +119,19 @@ int game(void)
     display_update();
     delay(500);
 
-	timer_init();
+	//timer_init();
     timeoutcount=0;
 
     //delay(500);
-
+    /* int o = 0;
+    char s = 'a';
+    char ss[3];
+    ss[2] = '\0';
+    ss[0] = s;
+    ss[1] = s; */
     while(1){
         //clear_buffer(display_buffer);
+        
         if(p1.active && !p2.active)
         {
             //draw_player(&p1);
@@ -137,7 +143,7 @@ int game(void)
             //draw_player(&p2);
             timesup=0;
             player_turn(&b, &p2);
-        }
+        } 
 
         //draw_bullet(&b);
     }
