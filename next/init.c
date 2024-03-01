@@ -150,7 +150,7 @@ void init(void){
 
 void timer_init(void){
     /*FROM SAM*/
-    T2CON = 0x20; //stop timer and clear control register, set prescale to 256:1
+    T2CON = 0x70; //stop timer and clear control register, set prescale to 256:1
     TMR2 = 0x0; // clear timer register
     PR2 = 0x7A12;
     IFSCLR(0) = 0x00000100;

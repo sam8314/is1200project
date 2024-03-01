@@ -12,8 +12,12 @@ int timeoutcount;
 void user_isr(void)
 {
 	IFS(0) &= ~0x100;
-    timeoutcount++; 
-    if (timeoutcount==10000){
+    timeoutcount++;
+    if ((timeoutcount%10)==0)
+    {
+        PORTE--;
+    }
+    if (timeoutcount==150){
         timeoutcount=0;
         timesup=1;
         if(p1.active){

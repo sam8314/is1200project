@@ -65,7 +65,9 @@ int main(void) {
 	while(1)
 	{	delay(100);	
         if (currentPage==6){
+			PORTE=15;
 			game();
+			delay(30);
 			write_help();
 			currentPage = 1;
 		}

@@ -147,7 +147,6 @@ char* help[] = {"If you want to","save your score", "you can enter","your name o
     "letter appears", "Press BTN3 to", "continue or", "BTN1 to skip"};
 
 char current[5];
-
 /* Displayed at the end of a game, can call get_name and afterwards add_element -> needs the score to be passed down!!!*/
 void write_help(){
     int firstRow = 0;
@@ -168,6 +167,7 @@ void write_help(){
         }
         display_update();
         if (buttons & 2){ //setup char array from AAAA, call get_name
+            delay(100);
             current[4]='\0';
             int i;
             for (i=0;i<4;i++){
@@ -176,8 +176,9 @@ void write_help(){
             get_name(current);
             done = 1;
             add_element(array,sc,current);
+            buttons = 1;
             currentPage = 1;
-            delay(100);
+            delay(100);                
             return;
         }
     }
