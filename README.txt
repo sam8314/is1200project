@@ -11,8 +11,8 @@ To enter the enviornment the folder containing the makefile and enter the comman
 . /opt/mcb32tools/environment
 make
 
-This game is run on a chipkit Uno32 board with a PIC32 processor. Connect it to your laptop via USb.
-Then enter, in your console, still in the game folder, enter the command:
+This game is run on a chipkit Uno32 board with a PIC32 processor. Connect it to your laptop via USB.
+Then enter, in your console, still in the game folder, the command:
 make install TTYDEV=/dev/ttyUSB0 (or an equivalent for your USBport)
 
 ## In the game
